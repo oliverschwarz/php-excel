@@ -1,4 +1,50 @@
-PHP-EXCEL is a simple PHP library to export an array into
-Microsoft XML format.
+Summary
+=======
+php-excel is a really simple library class written in PHP to
+dump an array of data into an Microsoft Excel and OpenOffice
+Calc readable format. This is version 2 of the older library
+still hosted on Google Code at:
 
-Oliver
+http://code.google.com/p/php-excel
+
+The class is inspired by the MySQL Query tool which offers a
+simple extraction of database into Microsoft's Open XML format.
+However, I was always looking for a way to do this in an app
+or a website with some data.
+
+What is it?
+-----------
+The function is simple: You generate an array - even a larger
+array, dump it into the class and select whether you want to
+write it into an excel-readable file or send this file directly
+to your browser.
+
+What isn't?
+-----------
+It can not deal with complex operations or layouts. If you
+like to design your tabular data using colors of font-styles
+or if you want the excel file to contain formulars, you better
+use a much more sophisticated export library. I recommend using
+the beautiful:
+
+http://www.codeplex.com/PHPExcel/
+
+... which is far more capable of such things.
+
+How to use it?
+--------------
+The usage is very, very simple. Here's the script for adding
+a simple array to the php-excel library and sending the file
+to the browser (for downloading):
+
+<?php
+
+require 'php-excel.class.php';
+$mydata = array(1 => 'Oliver Schwarz', 'Friedhelm Hasematzel');
+$xls = new Excel_XML;
+$xls->addWorksheet('My data', $mydata);
+$xls->sendWorkbook('mydata.xls');
+
+?>
+
+See test.php for more details.
