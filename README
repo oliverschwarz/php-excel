@@ -8,9 +8,9 @@ still hosted on Google Code at:
 http://code.google.com/p/php-excel
 
 The class is inspired by the MySQL Query tool which offers a
-simple extraction of database into Microsoft's Open XML format.
-However, I was always looking for a way to do this in an app
-or a website with some data.
+simple extraction of database tables into Microsoft's Open XML
+format. However, I was always looking for a way to do this in
+an app or a website with some data which belongs in a table.
 
 What is it?
 -----------
@@ -22,8 +22,8 @@ to your browser.
 What isn't?
 -----------
 It can not deal with complex operations or layouts. If you
-like to design your tabular data using colors of font-styles
-or if you want the excel file to contain formulars, you better
+like to design your tabular data using colors or font-styles
+or if you want the excel file to contain formulas, you better
 use a much more sophisticated export library. I recommend using
 the beautiful:
 
