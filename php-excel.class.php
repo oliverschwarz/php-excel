@@ -88,8 +88,13 @@ class Excel_XML
                 endif;
                 $filename = $this->getWorkbookTitle($filename);
                 $this->generateWorkbook();
-                header("Content-Type: application/vnd.ms-excel; charset=" . $this->sEncoding);
-                header("Content-Disposition: inline; filename=\"" . $filename);
+                if (preg_match('/\.xls$/', $filename)):
+                        header("Content-Type: application/vnd.ms-excel; charset=" . $this->sEncoding);
+                        header("Content-Disposition: inline; filename=\"" . $filename . "\"");
+                else:
+                        header("Content-Type: application/xml; charset=" . $this->sEncoding);
+                        header("Content-Disposition: attachment; filename=\"" . $filename . "\"");
+                endif;
                 echo $this->sOutput;
         }
 
