@@ -40,7 +40,7 @@ to the browser (for downloading):
 <?php
 
 require 'php-excel.class.php';
-$mydata = array(1 => 'Oliver Schwarz', 'Friedhelm Hasematzel');
+$mydata = array(array(1 => 'Oliver Schwarz', 'Friedhelm Hasematzel'));
 $xls = new Excel_XML;
 $xls->addWorksheet('My data', $mydata);
 $xls->sendWorkbook('mydata.xls');
