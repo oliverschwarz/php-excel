@@ -225,9 +225,24 @@ class Excel_XML
                 if (count($item['data']))
                         $item['data'] = array_slice($item['data'], 0, 65536);
                 foreach ($item['data'] as $k => $v):
-                        $this->generateRow($v);
+                    if($k === 0)
+                        $this->generateHeader($v);
+                    $this->generateRow($v);
                 endforeach;
                 $this->sOutput .= "    </Table>\n</Worksheet>\n";
+        }
+
+        /**
+         * Generate the header row
+         * @param array Item with row data
+         */
+        private function generateHeader($item)
+        {
+            $this->sOutput .= "        <Row>\n";
+            foreach ($item as $k => $v):
+                $this->generateCell($k);
+            endforeach;
+            $this->sOutput .= "        </Row>\n";
         }
 
         /**
